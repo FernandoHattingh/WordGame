@@ -61,29 +61,40 @@ namespace WordGame
             return new String(chars);
         }
 
-        public string CheckMatch(string match) 
+        public bool CheckMatch(string match) 
         {
-            string selectedWord = wordList[SelectWord()];
-
+            string selectedWord = wordList[SelectWord()].ToString();
+            bool flag;
             if (match.Equals(selectedWord))
             {
-                match = "Correct";
+                flag = true;
+                
             }
             else
             {
-                match = "Incorrect"; ;
+                flag = false;
+               
             }
 
-            return match;
+            return flag;
         }
 
 
         public void btnCheck_Click(object sender, RoutedEventArgs e)
         {
            string userIn = txtbAnswer.Text;
-            MessageBox.Show(CheckMatch(userIn));
-           
+            int counter = 0;
 
+            if (CheckMatch(userIn) == true)
+            {
+                counter++;
+                MessageBox.Show("Corrcet" + ", Your score is:" + counter);
+            }
+            else
+            {
+                counter--;
+                MessageBox.Show("Incorrcet" + ", Your score is:" + counter);
+            }
         }
     }
 }
