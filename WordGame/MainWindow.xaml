@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WordGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="447" Width="405">
+        Title="MainWindow" Height="481" Width="391">
     <Grid>
         <Label x:Name="lblTitle" Content="WORD GAME" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
         <Label x:Name="lblScrambledWord" Content="&#xD;&#xA;" HorizontalAlignment="Center" Margin="0,143,0,0" VerticalAlignment="Top" Width="auto"/>
         <Button x:Name="btnPlay" Content="PLAY" HorizontalAlignment="Center" Margin="0,258,0,0" VerticalAlignment="Top" Height="48" Width="116" FontSize="16" Click="btnPlay_Click"/>
-        <TextBox x:Name="txtbAnswer" HorizontalAlignment="Center" Margin="0,198,0,0" Text="Type your answer:" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
+        <TextBox x:Name="txtbAnswer" HorizontalAlignment="Center" Margin="0,198,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220"/>
         <Button x:Name="btnCheck" Content="CHECK" HorizontalAlignment="Left" Margin="32,341,0,0" VerticalAlignment="Top"  Height="48" Width="116" FontSize="16" Click="btnCheck_Click"/>
-
+        <Label Content="Your Score:" Name="lblYourScore" HorizontalAlignment="Left" Margin="242,348,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.868,0.573" Width="92" FontSize="16"/>
+        <Label Content="0" Name="lblLiveScore" HorizontalAlignment="Left" Margin="330,347,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
     </Grid>
 </Window>

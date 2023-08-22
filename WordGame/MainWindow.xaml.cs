@@ -109,19 +109,21 @@ namespace WordGame
                 string userIn = txtbAnswer.Text;
                 if (CheckMatch(userIn) == true)
                 {
-
-                    MessageBox.Show("Correct" + ", Your score is: " + counter);
+                    lblScrambledWord.Content = (ScrambleWord(wordList[SelectWord()]).ToString());
+                    MessageBox.Show("Correct");    
+                    txtbAnswer.Text = "";
                 }
                 else
                 {
-
-                    MessageBox.Show("Incorrect" + ", Your score is: " + counter);
+                    lblScrambledWord.Content = (ScrambleWord(wordList[SelectWord()]).ToString());
+                    MessageBox.Show("Incorrect");
                 }
             }
             else
             {
                 MessageBox.Show("Please click play first!");
             }
+            lblLiveScore.Content = counter;
         }
     }
 }
