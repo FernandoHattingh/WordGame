@@ -28,7 +28,6 @@ namespace WordGame
     "Function",
     "Interface",
     "Inheritance",
-    "Constructor",
     "Destructor",
     "Debugging",
     "Exception",
@@ -40,7 +39,6 @@ namespace WordGame
     "Framework",
     "Operand",
     "Bytecode",
-    "Framework",
     "Constructor"};
 
         Random wordSelector = new Random();
