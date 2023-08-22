@@ -17,30 +17,52 @@ namespace WordGame
 {
     public partial class MainWindow : Window
     {
-        List<string> wordList = new List<string>();
+        List<string> wordList = new List<string>(){
+        "Processor",
+    "Compiler",
+    "Array",
+    "Counter",
+    "Algorithm",
+    "Memory",
+    "Variable",
+    "Function",
+    "Interface",
+    "Inheritance",
+    "Constructor",
+    "Destructor",
+    "Debugging",
+    "Exception",
+    "LinkedList",
+    "Recursion",
+    "Enumeration",
+    "Namespace",
+    "Boolean",
+    "Framework",
+    "Operand",
+    "Bytecode",
+    "Framework",
+    "Constructor"};
+
         Random wordSelector = new Random();
+        int word = 0;
+        int counter = 0;
         
+
         public MainWindow()
         {
             InitializeComponent();
-
+            btnCheck.IsEnabled = false;
         }
 
         public void btnPlay_Click(object sender, RoutedEventArgs e)
-        {           
-            wordList.Add("Processor");
-            wordList.Add("Compiler");
-            wordList.Add("Array");
-            wordList.Add("Counter");
-            
-
+        {
             lblScrambledWord.Content = (ScrambleWord(wordList[SelectWord()]).ToString());
-
+            btnCheck.IsEnabled = true;
         }
 
         public int SelectWord()
         {
-            int word = wordSelector.Next(wordList.Count);
+            word = wordSelector.Next(wordList.Count);
 
             return word;
         }
@@ -53,27 +75,27 @@ namespace WordGame
             while (word.Length > 0)
             {
                 int next = rando.Next(0, word.Length - 1);
-                                                        
-                chars[index] = word[next];                
+
+                chars[index] = word[next];
                 word = word.Substring(0, next) + word.Substring(next + 1);
                 ++index;
             }
             return new String(chars);
         }
 
-        public bool CheckMatch(string match) 
+        public bool CheckMatch(string match)
         {
-            string selectedWord = wordList[SelectWord()].ToString();
+            string selectedWord = wordList[word].ToString();
             bool flag;
             if (match.Equals(selectedWord))
             {
                 flag = true;
-                
+                counter++;
             }
             else
             {
                 flag = false;
-               
+                counter--;
             }
 
             return flag;
@@ -82,18 +104,23 @@ namespace WordGame
 
         public void btnCheck_Click(object sender, RoutedEventArgs e)
         {
-           string userIn = txtbAnswer.Text;
-            int counter = 0;
-
-            if (CheckMatch(userIn) == true)
+            if (lblScrambledWord.Content != null)
             {
-                counter++;
-                MessageBox.Show("Corrcet" + ", Your score is:" + counter);
+                string userIn = txtbAnswer.Text;
+                if (CheckMatch(userIn) == true)
+                {
+
+                    MessageBox.Show("Correct" + ", Your score is: " + counter);
+                }
+                else
+                {
+
+                    MessageBox.Show("Incorrect" + ", Your score is: " + counter);
+                }
             }
             else
             {
-                counter--;
-                MessageBox.Show("Incorrcet" + ", Your score is:" + counter);
+                MessageBox.Show("Please click play first!");
             }
         }
     }
